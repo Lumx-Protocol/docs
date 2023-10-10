@@ -1,0 +1,51 @@
+---
+title: "Claim a reward"
+description: "Learn how to claim a reward"
+---
+
+<Snippet file="user-authentication.mdx" />
+
+#### Step 1. Add the user token to the request headers
+
+<CodeGroup>
+
+```bash cURL
+TOKEN=TOKEN
+```
+
+```javascript JavaScript
+import axios from "axios";
+
+axios.defaults.headers.common["Authorization"] = TOKEN;
+```
+
+</CodeGroup>
+
+#### Step 2. Claim a reward
+
+To claim a reward linked to the token use the code below.
+
+<CodeGroup>
+
+```bash cURL
+curl --request POST \
+--url https://protocol-staging.int.lumx.io/v1/rewards/{rewardId}/claim
+--header 'Bearer: $TOKEN'
+```
+
+```javascript JavaScript
+axios
+  .post("https://protocol.lumx.io/v1/rewards/{rewardId}/claim")
+  .then((response) => {
+    // Handle Success
+    console.log(response);
+  });
+```
+
+</CodeGroup>
+
+You will receive a status 200 with an object containing the content of the reward.
+
+**Congratulations!**
+
+<Snippet file="troubleshooting.mdx" />

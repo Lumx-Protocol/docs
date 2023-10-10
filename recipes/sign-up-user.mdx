@@ -1,0 +1,80 @@
+---
+title: "Sign up a user"
+description: "Learn how to sign up a user"
+---
+
+#### Step 1. Register a user
+
+You can register a user on our Protocol, in three different ways: e-mail, Google or Web3 Wallet. For this recipe we will simulate a user being registered using their e-mail.
+
+<CodeGroup>
+
+```bash cURL
+curl --request POST \
+--url https://protocol-staging.int.lumx.io/v1/users \
+--header 'Content-Type: application/json'
+--data '
+  {
+    "clientId": "<CLIENT_ID>",
+    "method": "email",
+    "email": "<EMAIL>"
+  }'
+```
+
+```javascript JavaScript
+axios
+  .post("https://protocol-staging.int.lumx.io/v1/users", {
+    clientId: "CLIENT_ID",
+    method: "email",
+    email: "<EMAIL>",
+  })
+  .then((response) => {
+    // Handle Success
+    console.log(response);
+  });
+```
+
+</CodeGroup>
+
+You will receive a status 200 with an object containing the user id.
+
+#### Step 2. Verify code
+
+Now the user needs to verify their e-mail. Make sure to check the spam box on the e-mail provided above.
+
+Post the received code using the request below.
+
+<CodeGroup>
+
+```bash cURL
+curl --request POST \
+--url https://protocol-staging.int.lumx.io/v1/verify-code \
+--header 'Content-Type: application/json' \
+--data '
+ {
+  "email": "<EMAIL>",
+  "code": "<CODE>"
+ }'
+```
+
+```javascript JavaScript
+axios
+  .post("https://protocol-staging.int.lumx.io/v1/verify-code", {
+    email: "<EMAIL>",
+    code: "<CODE>",
+  })
+  .then((response) => {
+    // Handle Success
+    console.log(response);
+  });
+```
+
+</CodeGroup>
+
+You will receive a status 200 with an object containing the token.
+
+**Congratulations!**
+
+If you completed all the steps above, you can advance to our next recipe.
+
+<Snippet file="troubleshooting.mdx" />

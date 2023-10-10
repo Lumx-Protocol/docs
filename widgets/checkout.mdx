@@ -1,0 +1,77 @@
+---
+title: "Checkout"
+description: "Purchase Web3 tokens using the most common payment methods available"
+---
+
+Our checkout widget provides different payment methods for users to buy Web3 tokens, be it fungible tokens (cryptocurrencies) or non-fungible tokens (NFTs). Currently, the payment methods available include PIX (for Brazilian users) and Credit Card.
+
+Check our prototype below.
+
+<div
+  className="w-full"
+  style={{
+    height: "750px",
+  }}
+>
+  <iframe
+    src="https://widgets-embed.lumxstudios.com/send?params=eyJDTElFTlRfSUQiOiJiYzVkZDU5ZS0xNmJkLTQ4YmItOGIxYS04MzQ3M2I1MjVkNzIiLCJET01BSU5fT1JJR0lOIjoiZmlsZTovLyIsImxvY2FsZSI6ImVuX1VTIiwidHlwZSI6ImNoZWNrb3V0IiwiaXRlbUlkIjoiZjQzZDU3NjktNWM0YS00YzYzLTk3NDUtNjhjMTYyMWRkZDRiIiwib3B0aW9ucyI6eyJ0aGVtZSI6ImRhcmsifSwiaXNNb2RhbCI6dHJ1ZX0="
+    allow="clipboard-write"
+    style={{
+      background: "#16181A",
+      display: "block",
+      flexGrow: "1",
+      borderRadius: "16px",
+      border: "none",
+      zIndex: "2147483640",
+      marginLeft: "auto",
+      marginRight: "auto",
+      padding: "20px",
+      height: "100%",
+      width: "100%",
+    }}
+  />
+</div>
+
+## Usage
+
+Copy the following code to the head of your website.
+
+```JavaScript
+<script src="https://widgets.lumxstudios.com"></script>
+
+<script>
+  widget.init({ clientId: <CLIENT_ID>, type: 'checkout' })
+</script>
+```
+
+You can also call **widget.init** on any event on your application such as on-click or on-submit.
+
+## Events
+
+To seamlessly incorporate the widget into your app, it's essential to monitor the emitted events. These events come in four distinct types.
+
+#### INIT_IFRAME
+
+When it has been called and loaded successfully.
+
+#### ORDER_INFO
+
+When the transcation is successful. Contains the txHash, and can be used when you need to update your UI.
+
+```JavaScript
+{
+  itemId: string
+  amount: number
+  price: number
+  paymentMethod: string
+  transactionHash: string
+}
+```
+
+#### CLOSE_IFRAME
+
+When the widget is closed and removed from the page.
+
+#### END_AUTH
+
+When the checkout process is finished.
