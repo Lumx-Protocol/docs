@@ -51,6 +51,7 @@
         "get-started/authentication",
         "get-started/environments",
         "get-started/blockchains",
+        "get-started/changelog",
         "get-started/troubleshooting"
       ]
     },
@@ -153,6 +154,7 @@
       "group": "Get Started",
       "pages": [
         "widgets/introduction",
+        "widgets/customization",
         "widgets/authentication",
         "widgets/checkout"
       ]
