@@ -7,35 +7,12 @@ info:
 servers:
   - url: https://protocol-staging.int.lumx.io/v1
 paths:
-  "/users":
-    post:
-      tags:
-        - Users
-      summary: Register a user
-      description:
-        This endpoint registers a user using our custodial wallet, via Google
-        or e-mail, or the user's own self-custodial wallet
-      requestBody:
-        content:
-          application/json:
-            schema:
-              "$ref": "#/components/schemas/UserRequest"
-              required:
-                - clientId
-                - method
-      responses:
-        "201":
-          description: Created
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/UserRegisterResponse"
   "/sessions":
     post:
       tags:
         - Users
       summary: Start a session
-      description: This endpoint starts a session of a registered user
+      description: This endpoint registers a user or starts a session of a already registered user via Google, e-mail or sms.
       requestBody:
         content:
           application/json:
@@ -759,7 +736,7 @@ paths:
       tags:
         - Discount Code
       parameters:
-        - name: id
+        - name: discountCodeId
           in: path
           required: true
           schema:
@@ -814,8 +791,65 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/DiscountCodeResponse"
+  "/account/users":
+    post:
+      summary: Create account for user
+      description: This endpoint allows an client to manually create a user. Instead of users to self-register,
+      tags:
+        - Account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminUserRequest"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                properties:
+                  account:
+                    "$ref": "#/components/schemas/UserResponse"
+      security:
+        - clientAuth: []
+  "/account/users/{userId}":
+    patch:
+      summary: Update a user
+      description: This endpoint allows an client to manually update a user data. Instead of users to self update.
+      tags: 
+        - Account
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the user.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/UserUpdateRequest"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/UserResponse"
+      security:
+        - clientAuth: []
+      
 components:
   schemas:
+    AdminUserRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The e-mail of the user.
     UserRequest:
       type: object
       properties:
@@ -826,28 +860,14 @@ components:
             yet? [Request one](/authenticate).
         method:
           type: string
-          enum: ["email", "google", "selfCustody"]
-          description: Sign-up method used to create a new user. When using **selfCustody**, you will need a Web3 library to interact with it ([web3.js](https://web3js.readthedocs.io), [wagmi](https://wagmi.sh/) or any other of your choice).
+          enum: ["email", "google", "phone"]
+          description: Sign-up method used to create a new user.
         email:
           type: string
-          description: The e-mail of the user. Required when the method is **email** or **selfCustody**.
-        signature:
-          type: object
-          description: The signature from the self-custody wallet. Required when the method is **selfCustody**.
-          properties:
-            address:
-              type: string
-              description: The address of the self-custody wallet
-            hash:
-              type: string
-              description:
-                "When using the **selfCustody** method the user needs to sign
-                a message to verify the ownership of the wallet. \n\n This is the message
-                to be signed: 'This is a message to be signed for a secure login,
-                it won't trigger any cost for you. \n\n Nonce: <NONCE>'. \n\n Add the [nonce](https://academy.binance.com/en/glossary/nonce) to the message before signing it."
-            chainId:
-              type: string
-              description: The ID for the selected [blockchain](/blockchain).
+          description: The e-mail of the user. Required when the method is **email**.
+        phone:
+          type: string
+          description: The phone number of the user. Required when the method is **phone**. Format "+55 11 99999-9999"
         accessToken:
           type: string
           description:
@@ -892,7 +912,7 @@ components:
           description: The URL for the profile picture of the user.
         phone:
           type: string
-          description: The phone of the user.
+          description: The phone of the user. Format "+55 11 999999999"
         birthDate:
           description: 'The date of birth of the user. Format "YYYY-MM-DD HH:mm" (GMT/UTC+0)'
           type: string
@@ -1148,7 +1168,7 @@ components:
           description: The payment method of the mint. Only required for item types that have a price greater than 0.
         cardDetails:
           type: object
-          description: The signature from the self-custody wallet. Required when the method is **selfCustody**.
+          description: An object with credit card details for processing payments.
           properties:
             number:
               type: string
