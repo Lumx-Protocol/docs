@@ -193,23 +193,9 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  contracts:
-                    items:
-                      allOf:
-                        - "$ref": "#/components/schemas/ContractResponse"
-                        - properties:
-                            address:
-                              nullable: true
-                              type: string
-                              description: The address of the contract.
-                            abi:
-                              items:
-                                type: object
-                              nullable: true
-                              description: The ABI of the contract.
-                              type: array
-                    type: array
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ContractResponse"
       security:
         - clientAuth: []
     post:
@@ -417,12 +403,9 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  itemTypes:
-                    items:
-                      allOf:
-                        - "$ref": "#/components/schemas/ItemTypeResponse"
-                    type: array
+                type: "array"
+                items:
+                  $ref: "#/components/schemas/ItemTypeResponse"
       security:
         - clientAuth: []
     post:
@@ -508,12 +491,9 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  mints:
-                    items:
-                      allOf:
-                        - "$ref": "#/components/schemas/MintResponse"
-                    type: array
+                type: "array"
+                items: 
+                 $ref: "#/components/schemas/MintResponse"
       security:
         - clientAuth: []
     post:
@@ -611,12 +591,9 @@ paths:
           content:
             application/json:
               schema:
-                properties:
-                  rewards:
-                    items:
-                      allOf:
-                        - "$ref": "#/components/schemas/RewardResponse"
-                    type: array
+                type: "array"
+                items:
+                 $ref: "#/components/schemas/RewardResponse"
       security:
         - clientAuth: []
     post:
