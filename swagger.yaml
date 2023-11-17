@@ -6,9 +6,6 @@ info:
   description: Lumx Protocol API
 servers:
   - url: https://protocol-staging.int.lumx.io/v1
-  - url: https://testing.lumx.io/v1
-  - url: https://testing-2.lumx.io/v1
-  - url: https://testing-3.lumx.io/v1
 paths:
   "/sessions":
     post:
