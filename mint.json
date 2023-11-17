@@ -57,7 +57,10 @@
     },
     {
       "group": "Recipes",
-      "pages": ["recipes/overview", "recipes/first-request"]
+      "pages": [
+        "recipes/overview",
+        "recipes/first-request"
+      ]
     },
     {
       "group": "Admin Journey",
@@ -79,7 +82,6 @@
     {
       "group": "Users",
       "pages": [
-        "api-reference/users/create",
         "api-reference/users/session",
         "api-reference/users/resend-code",
         "api-reference/users/verify-code",
@@ -87,6 +89,13 @@
         "api-reference/users/read-wallet",
         "api-reference/users/update",
         "api-reference/users/transfer"
+      ]
+    },
+    {
+      "group": "Account",
+      "pages": [
+        "api-reference/account/create-user",
+        "api-reference/account/update-user"
       ]
     },
     {
@@ -154,7 +163,6 @@
       "group": "Get Started",
       "pages": [
         "widgets/introduction",
-        "widgets/customization",
         "widgets/authentication",
         "widgets/checkout"
       ]
