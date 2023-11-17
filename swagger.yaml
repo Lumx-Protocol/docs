@@ -5,7 +5,8 @@ info:
   title: Lumx Protocol
   description: Lumx Protocol API
 servers:
-  - url: https://protocol-staging.int.lumx.io/v1
+  - url: https://protocol.lumx.io/v1
+  - url: https://protocol-sandbox.lumx.io/v1
 paths:
   "/sessions":
     post:
@@ -818,7 +819,7 @@ paths:
     patch:
       summary: Update a user
       description: This endpoint allows an client to manually update a user data. Instead of users to self update.
-      tags: 
+      tags:
         - Account
       parameters:
         - name: userId
@@ -841,7 +842,6 @@ paths:
                 "$ref": "#/components/schemas/UserResponse"
       security:
         - clientAuth: []
-      
 components:
   schemas:
     AdminUserRequest:

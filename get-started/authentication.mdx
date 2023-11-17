@@ -3,13 +3,9 @@ title: "Authentication"
 description: "Follow our quick tutorial to authenticate yourself on the Protocol"
 ---
 
-There are two authentication methods.
+You will receive a client access key after your company signs up to use our services.
 
-## Admin authentication
-
-This method is exclusive to our partners, companies and developers that have built their Web3 applications using our protocol. A client access key is received after your company signs up to use our services.
-
-If you want to become a partner or you haven't received your api key please contact us at developer@lumxstudios.com or send a message on [our Slack community](https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA).
+If you want to become a partner or you haven't received your api key please contact us at hello@lumx.io or send a message on [our Slack community](https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA).
 
 After receiving it, you can add the api key to your authorization header:
 
@@ -19,18 +15,4 @@ After receiving it, you can add the api key to your authorization header:
 
 Endpoints that require admin authentication will be marked with the following notice throughout the documentation:
 
-<Snippet file="admin-authentication.mdx" />
-
-## User authentication
-
-This method is open to all users. The user access token is received after a successful [sign in](/api-reference/sign-in).
-
-After receiving it, you can add the user access key to the authorization header of that user's following requests:
-
-```bash
-'Authorization': 'Bearer <TOKEN>'
-```
-
-Endpoints that require client authentication will be marked with the following notice throughout the documentation:
-
-<Snippet file="user-authentication.mdx" />
+<Snippet file="authentication.mdx" />
