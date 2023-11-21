@@ -547,7 +547,7 @@ paths:
               "$ref": "#/components/schemas/MintAirdropRequest"
               required:
                 - itemTypeId
-                - walletAddress
+                - address
       responses:
         "202":
           description: Accepted
@@ -1217,7 +1217,7 @@ components:
           format: uuid
           type: string
           description: The ID of the item type.
-        walletAddress:
+        address:
           type: string
           description: The wallet address to receive the tokens.
         amount:
