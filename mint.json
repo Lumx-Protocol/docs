@@ -6,9 +6,16 @@
     "light": "/logo/light.svg"
   },
   "api": {
-    "baseUrl": "https://protocol-staging.int.lumx.io/v1",
-    "maintainOrder": true
+    "baseUrl": [
+      "https://protocol-sandbox.lumx.io/v1",
+      "https://protocol.lumx.io/v1"
+    ],
+    "maintainOrder": true,
+    "auth": {
+      "method": "bearer"
+    }
   },
+  "versions": ["v1", "Deprecated"],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#6E05FF",
@@ -38,6 +45,11 @@
       "url": "widgets"
     },
     {
+      "name": "Status",
+      "url": "https://status.lumx.io"
+    },
+
+    {
       "name": "Community",
       "url": "https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA"
     }
@@ -57,10 +69,7 @@
     },
     {
       "group": "Recipes",
-      "pages": [
-        "recipes/overview",
-        "recipes/first-request"
-      ]
+      "pages": ["recipes/overview", "recipes/first-request"]
     },
     {
       "group": "Admin Journey",
@@ -80,23 +89,14 @@
       ]
     },
     {
-      "group": "Users",
+      "group": "Wallets",
       "pages": [
-        "api-reference/users/session",
-        "api-reference/users/resend-code",
-        "api-reference/users/verify-code",
-        "api-reference/users/read",
-        "api-reference/users/read-wallet",
-        "api-reference/users/update",
-        "api-reference/users/transfer"
-      ]
-    },
-    {
-      "group": "Account",
-      "pages": [
-        "api-reference/account/create-user",
-        "api-reference/account/update-user"
-      ]
+        "api-reference/wallet/create",
+        "api-reference/wallet/read",
+        "api-reference/wallet/read-all",
+        "api-reference/wallet/update"
+      ],
+      "version": "v1"
     },
     {
       "group": "Contracts",
@@ -105,59 +105,38 @@
         "api-reference/contracts/read",
         "api-reference/contracts/read-all",
         "api-reference/contracts/update",
-        "api-reference/contracts/deploy"
-      ]
-    },
-    {
-      "group": "Item Types",
-      "pages": [
-        "api-reference/item-types/create",
-        "api-reference/item-types/read",
-        "api-reference/item-types/read-all",
-        "api-reference/item-types/update"
-      ]
-    },
-    {
-      "group": "Mints",
-      "pages": [
-        "api-reference/mints/create",
-        "api-reference/mints/airdrop",
-        "api-reference/mints/read",
-        "api-reference/mints/read-all"
-      ]
-    },
-    {
-      "group": "Rewards",
-      "pages": [
-        "api-reference/rewards/create",
-        "api-reference/rewards/read",
-        "api-reference/rewards/read-all",
-        "api-reference/rewards/update",
-        "api-reference/rewards/delete",
-        "api-reference/rewards/claim"
-      ]
-    },
-    {
-      "group": "Additional Features",
-      "pages": [
+        "api-reference/contracts/deploy",
         {
-          "group": "Allowlist",
+          "group": "Item Types",
           "pages": [
-            "api-reference/adicional-features/allowlist/add",
-            "api-reference/adicional-features/allowlist/read",
-            "api-reference/adicional-features/allowlist/remove"
-          ]
-        },
-        {
-          "group": "Discount Codes",
-          "pages": [
-            "api-reference/adicional-features/discount-codes/create",
-            "api-reference/adicional-features/discount-codes/read",
-            "api-reference/adicional-features/discount-codes/update",
-            "api-reference/adicional-features/discount-codes/delete"
+            "api-reference/contracts/item-types/create",
+            "api-reference/contracts/item-types/read",
+            "api-reference/contracts/item-types/read-all",
+            "api-reference/contracts/item-types/update"
           ]
         }
-      ]
+      ],
+      "version": "v1"
+    },
+    {
+      "group": "Transactions",
+      "pages": [
+        "api-reference/transactions/mint",
+        "api-reference/transactions/transfer",
+        "api-reference/transactions/read",
+        "api-reference/transactions/read-all"
+      ],
+      "version": "v1"
+    },
+    {
+      "group": "Deprecated",
+      "pages": [
+        "api-reference/wallet/create",
+        "api-reference/wallet/read",
+        "api-reference/wallet/read-all",
+        "api-reference/wallet/update"
+      ],
+      "version": "Deprecated"
     },
     {
       "group": "Get Started",
