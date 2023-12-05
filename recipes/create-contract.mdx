@@ -1,6 +1,6 @@
 ---
-title: "Create a non-fungible token"
-description: "Learn how to create a non-fungible token"
+title: "Create a contract"
+description: "Learn how to create a contract"
 ---
 
 <Snippet file="admin-authentication.mdx" />
@@ -16,7 +16,7 @@ API_KEY=API_KEY
 ```javascript JavaScript
 import axios from "axios";
 
-axios.defaults.headers.common["Authorization"] = CLIENT_ACCESS_KEY;
+axios.defaults.headers.common["Authorization"] = API_KEY;
 ```
 
 </CodeGroup>
@@ -34,7 +34,7 @@ curl --request POST \
 --header 'Content-Type: application/json' \
 --data '
 {
-  "type"": "non-fungible",
+  "type": "fungible",
   "name": "First fungible contract",
   "description": "My first fungible contract",
   "blockchainName": "polygon",
@@ -72,8 +72,6 @@ You will receive a status 200 with an object containing the ID of the contract.
 
 Now it's time to create an item type and associate it to the contract that we created above. Think of an item type as the template for the token that you want to have.
 
-<Info> Non-fungible contracts allow multiples item types</Info>
-
 <CodeGroup>
 
 ```bash cURL
@@ -94,7 +92,7 @@ curl --request POST \
 
 ```javascript JavaScript
 axios
-  .post("https://protocol.lumx.io/v1/item-types", {
+  .post("https://protocol-staging.int.lumx.io/v1/item-types", {
     contractId: "<CONTRACT_ID>",
     description: "My first item type",
     name: "First item type",
@@ -109,7 +107,7 @@ axios
 
 </CodeGroup>
 
-You will receive a status 200 with an object containing the id of item type.
+You will receive a status 200 with an object containing the ID of item type.
 
 #### Step 4. It's time to deploy it
 

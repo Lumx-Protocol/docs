@@ -31,7 +31,11 @@
   },
   "topbarLinks": [
     {
-      "name": "Become a Partner",
+      "name": "System Status",
+      "url": "https://status.lumx.io"
+    },
+    {
+      "name": "Support",
       "url": "https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA"
     }
   ],
@@ -43,15 +47,6 @@
     {
       "name": "Widgets",
       "url": "widgets"
-    },
-    {
-      "name": "Status",
-      "url": "https://status.lumx.io"
-    },
-
-    {
-      "name": "Community",
-      "url": "https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA"
     }
   ],
   "navigation": [
@@ -63,38 +58,28 @@
         "get-started/authentication",
         "get-started/environments",
         "get-started/blockchains",
-        "get-started/changelog",
-        "get-started/troubleshooting"
+        "get-started/troubleshooting",
+        "get-started/changelog"
       ]
     },
     {
       "group": "Recipes",
-      "pages": ["recipes/overview", "recipes/first-request"]
-    },
-    {
-      "group": "Admin Journey",
       "pages": [
-        "recipes/create-fungible-token",
-        "recipes/create-non-fungible-token",
-        "recipes/create-reward"
-      ]
-    },
-    {
-      "group": "User Journey",
-      "pages": [
-        "recipes/sign-up-user",
+        "recipes/overview",
+        "recipes/first-request",
+        "recipes/create-wallet",
+        "recipes/create-contract",
         "recipes/mint-token",
-        "recipes/check-mint-status",
-        "recipes/claim-reward"
+        "recipes/read-transaction"
       ]
     },
     {
       "group": "Wallets",
       "pages": [
-        "api-reference/wallet/create",
-        "api-reference/wallet/read",
-        "api-reference/wallet/read-all",
-        "api-reference/wallet/update"
+        "api-reference/wallets/create",
+        "api-reference/wallets/read",
+        "api-reference/wallets/read-all",
+        "api-reference/wallets/update"
       ],
       "version": "v1"
     },
@@ -106,15 +91,10 @@
         "api-reference/contracts/read-all",
         "api-reference/contracts/update",
         "api-reference/contracts/deploy",
-        {
-          "group": "Item Types",
-          "pages": [
-            "api-reference/contracts/item-types/create",
-            "api-reference/contracts/item-types/read",
-            "api-reference/contracts/item-types/read-all",
-            "api-reference/contracts/item-types/update"
-          ]
-        }
+        "api-reference/contracts/item-types/create",
+        "api-reference/contracts/item-types/read",
+        "api-reference/contracts/item-types/read-all",
+        "api-reference/contracts/item-types/update"
       ],
       "version": "v1"
     },
@@ -148,8 +128,8 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/lumxstudios",
-    "github": "https://github.com/lumx-partners",
-    "linkedin": "https://www.linkedin.com/company/lumxstudios"
+    "github": "https://github.com/lumx-protocol",
+    "twitter": "https://twitter.com/hellolumx",
+    "linkedin": "https://www.linkedin.com/company/hellolumx"
   }
 }
