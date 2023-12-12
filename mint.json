@@ -8,7 +8,6 @@
   "api": {
     "maintainOrder": true
   },
-  "openapi": "protocol.yaml",
   "versions": ["v1.1 - Current", "v1.0 - Deprecated"],
   "favicon": "/favicon.png",
   "colors": {
