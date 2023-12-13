@@ -1,0 +1,33 @@
+---
+title: "Read a transaction"
+description: "Learn how to read a transaction"
+---
+
+#### Step 1. Read mint request
+
+Every new mint is queued up to eliminate any possible transaction fails.
+
+Get the status of your mint request using the code below.
+
+<CodeGroup>
+
+```bash cURL
+curl --location --request GET 'https://protocol.lumx.io/v1/mints/{mintId}'
+```
+
+```javascript JavaScript
+axios.get("https://protocol.lumx.io/v1/mints/{mintId}").then((response) => {
+  // Handle Success
+  console.log(response);
+});
+```
+
+</CodeGroup>
+
+You will receive a status 200 with an object containing the mint request status and transaction hash.
+
+**Congratulations!** You can check your transaction hash on the [block explorer](https://mumbai.polygonscan.com).
+
+If you completed all the steps above, you can advance to our next recipe.
+
+<Snippet file="troubleshooting.mdx" />

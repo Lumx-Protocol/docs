@@ -6,9 +6,10 @@
     "light": "/logo/light.svg"
   },
   "api": {
-    "baseUrl": "https://protocol-staging.int.lumx.io/v1",
     "maintainOrder": true
   },
+  "openapi": "protocol.yaml",
+  "versions": ["v1.1 - Current", "v1.0 - Deprecated"],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#6E05FF",
@@ -24,7 +25,11 @@
   },
   "topbarLinks": [
     {
-      "name": "Become a Partner",
+      "name": "System Status",
+      "url": "https://status.lumx.io"
+    },
+    {
+      "name": "Support",
       "url": "https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA"
     }
   ],
@@ -36,10 +41,6 @@
     {
       "name": "Widgets",
       "url": "widgets"
-    },
-    {
-      "name": "Community",
-      "url": "https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA"
     }
   ],
   "navigation": [
@@ -51,112 +52,30 @@
         "get-started/authentication",
         "get-started/environments",
         "get-started/blockchains",
-        "get-started/changelog",
-        "get-started/troubleshooting"
+        "get-started/troubleshooting",
+        "get-started/changelog"
+      ]
+    },
+    {
+      "group": "Get Started",
+      "pages": [
+        "get-started/introduction",
+        "get-started/why-lumx",
+        "get-started/authentication",
+        "get-started/environments",
+        "get-started/blockchains",
+        "get-started/troubleshooting",
+        "get-started/changelog"
       ]
     },
     {
       "group": "Recipes",
       "pages": [
         "recipes/overview",
-        "recipes/first-request"
-      ]
-    },
-    {
-      "group": "Admin Journey",
-      "pages": [
-        "recipes/create-fungible-token",
-        "recipes/create-non-fungible-token",
-        "recipes/create-reward"
-      ]
-    },
-    {
-      "group": "User Journey",
-      "pages": [
-        "recipes/sign-up-user",
-        "recipes/mint-token",
-        "recipes/check-mint-status",
-        "recipes/claim-reward"
-      ]
-    },
-    {
-      "group": "Users",
-      "pages": [
-        "api-reference/users/session",
-        "api-reference/users/resend-code",
-        "api-reference/users/verify-code",
-        "api-reference/users/read",
-        "api-reference/users/read-wallet",
-        "api-reference/users/update",
-        "api-reference/users/transfer"
-      ]
-    },
-    {
-      "group": "Account",
-      "pages": [
-        "api-reference/account/create-user",
-        "api-reference/account/update-user"
-      ]
-    },
-    {
-      "group": "Contracts",
-      "pages": [
-        "api-reference/contracts/create",
-        "api-reference/contracts/read",
-        "api-reference/contracts/read-all",
-        "api-reference/contracts/update",
-        "api-reference/contracts/deploy"
-      ]
-    },
-    {
-      "group": "Item Types",
-      "pages": [
-        "api-reference/item-types/create",
-        "api-reference/item-types/read",
-        "api-reference/item-types/read-all",
-        "api-reference/item-types/update"
-      ]
-    },
-    {
-      "group": "Mints",
-      "pages": [
-        "api-reference/mints/create",
-        "api-reference/mints/airdrop",
-        "api-reference/mints/read",
-        "api-reference/mints/read-all"
-      ]
-    },
-    {
-      "group": "Rewards",
-      "pages": [
-        "api-reference/rewards/create",
-        "api-reference/rewards/read",
-        "api-reference/rewards/read-all",
-        "api-reference/rewards/update",
-        "api-reference/rewards/delete",
-        "api-reference/rewards/claim"
-      ]
-    },
-    {
-      "group": "Additional Features",
-      "pages": [
-        {
-          "group": "Allowlist",
-          "pages": [
-            "api-reference/adicional-features/allowlist/add",
-            "api-reference/adicional-features/allowlist/read",
-            "api-reference/adicional-features/allowlist/remove"
-          ]
-        },
-        {
-          "group": "Discount Codes",
-          "pages": [
-            "api-reference/adicional-features/discount-codes/create",
-            "api-reference/adicional-features/discount-codes/read",
-            "api-reference/adicional-features/discount-codes/update",
-            "api-reference/adicional-features/discount-codes/delete"
-          ]
-        }
+        "recipes/first-request",
+        "recipes/create-wallet",
+        "recipes/create-contract",
+        "recipes/read-transaction"
       ]
     },
     {
@@ -166,11 +85,60 @@
         "widgets/authentication",
         "widgets/checkout"
       ]
+    },
+    {
+      "group": "Accounts",
+      "pages": [
+        "api-reference/deprecated/transfer-tokens",
+        "api-reference/deprecated/create-account-for-user",
+        "api-reference/deprecated/update-a-user",
+        "api-reference/deprecated/read-wallet"
+      ],
+      "version": "v1.0 - Deprecated"
+    },
+    {
+      "group": "Mints",
+      "pages": ["api-reference/deprecated/send-an-airdrop"],
+      "version": "v1.0 - Deprecated"
+    },
+    {
+      "group": "Wallets",
+      "pages": [
+        "api-reference/wallets/read-all-wallets",
+        "api-reference/wallets/create-a-wallet",
+        "api-reference/wallets/read-a-wallet"
+      ],
+      "version": "v1.1 - Current"
+    },
+    {
+      "group": "Contracts",
+      "pages": [
+        "api-reference/contracts/read-all-contracts",
+        "api-reference/contracts/create-a-contract",
+        "api-reference/contracts/read-a-contract",
+        "api-reference/contracts/update-a-contract",
+        "api-reference/contracts/deploy-a-contract",
+        "api-reference/contracts/read-all-item-types-of-a-given-contract",
+        "api-reference/contracts/create-an-item-type-for-a-contract",
+        "api-reference/contracts/read-an-item-type-from-a-contract",
+        "api-reference/contracts/update-an-item-type-of-a-contract"
+      ],
+      "version": "v1.1 - Current"
+    },
+    {
+      "group": "Transactions",
+      "pages": [
+        "api-reference/transactions/mint-a-token",
+        "api-reference/transactions/transfer-tokens",
+        "api-reference/transactions/read-all-transactions",
+        "api-reference/transactions/read-a-transaction"
+      ],
+      "version": "v1.1 - Current"
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/lumxstudios",
-    "github": "https://github.com/lumx-partners",
-    "linkedin": "https://www.linkedin.com/company/lumxstudios"
+    "github": "https://github.com/lumx-protocol",
+    "twitter": "https://twitter.com/hellolumx",
+    "linkedin": "https://www.linkedin.com/company/hellolumx"
   }
 }

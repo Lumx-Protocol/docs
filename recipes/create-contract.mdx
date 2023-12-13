@@ -1,0 +1,141 @@
+---
+title: "Create a contract"
+description: "Learn how to create a contract"
+---
+
+<Snippet file="admin-authentication.mdx" />
+
+#### Step 1. Add your api key to the request headers
+
+<CodeGroup>
+
+```bash cURL
+API_KEY=API_KEY
+```
+
+```javascript JavaScript
+import axios from "axios";
+
+axios.defaults.headers.common["Authorization"] = API_KEY;
+```
+
+</CodeGroup>
+
+#### Step 2. Create a contract
+
+Every token needs a smart contract on the blockchain. But it's our job on the protocol to make it simple. With only one request you can create a Solidity contract.
+
+<CodeGroup>
+
+```bash cURL
+curl --request POST \
+--url https://protocol-staging.int.lumx.io/v1/contracts \
+--header 'Bearer: $API_KEY' \
+--header 'Content-Type: application/json' \
+--data '
+{
+  "type": "fungible",
+  "name": "First fungible contract",
+  "description": "My first fungible contract",
+  "blockchainName": "polygon",
+  "currency": {
+    "type": "fiat",
+    "symbol": "USD"
+  }
+}
+'
+```
+
+```javascript JavaScript
+axios
+  .post("https://protocol-staging.int.lumx.io/v1/contracts", {
+    type: "fungible",
+    name: "First fungible contract",
+    description: "My first fungible contract",
+    blockchainName: "polygon",
+    currency: {
+      type: "fiat",
+      symbol: "USD",
+    },
+  })
+  .then((response) => {
+    // Handle Success
+    console.log(response);
+  });
+```
+
+</CodeGroup>
+
+You will receive a status 200 with an object containing the ID of the contract.
+
+#### Step 3. Create an item type
+
+Now it's time to create an item type and associate it to the contract that we created above. Think of an item type as the template for the token that you want to have.
+
+<CodeGroup>
+
+```bash cURL
+curl --request POST \
+--url https://protocol-staging.int.lumx.io/v1/item-types \
+--header 'Bearer: $API_KEY' \
+--header 'Content-Type: application/json' \
+--data '
+{
+  "contractId": "<CONTRACT_ID>",
+  "description": "My first item type",
+  "name": "First item type",
+  "price": 0,
+  "supply": 100
+}
+'
+```
+
+```javascript JavaScript
+axios
+  .post("https://protocol-staging.int.lumx.io/v1/item-types", {
+    contractId: "<CONTRACT_ID>",
+    description: "My first item type",
+    name: "First item type",
+    price: 0,
+    supply: 100,
+  })
+  .then((response) => {
+    // Handle Success
+    console.log(response);
+  });
+```
+
+</CodeGroup>
+
+You will receive a status 200 with an object containing the ID of item type.
+
+#### Step 4. It's time to deploy it
+
+The last step is to deploy your contract to the blockchain. You can do that with one simple request.
+
+<CodeGroup>
+
+```bash cURL
+curl --request POST \
+--url https://protocol-staging.int.lumx.io/v1/contract/{contractId}/deploy \
+--header 'Bearer: $API_KEY'
+```
+
+```javascript JavaScript
+axios
+  .post("https://protocol-staging.int.lumx.io/v1/contract/{contractId}/deploy")
+  .then((response) => {
+    // Handle Success
+    console.log(response);
+  });
+```
+
+</CodeGroup>
+
+You will receive a status 200 with an object containing the contract address on the blockchain.
+
+**Congratulations!** You can check your contract on the [block explorer](https://mumbai.polygonscan.com).
+
+If you completed all the steps above, you can advance to our next recipe.
+
+<Snippet file="troubleshooting.mdx" />
