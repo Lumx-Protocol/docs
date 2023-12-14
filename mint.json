@@ -102,6 +102,13 @@
       "version": "v1.0 - Deprecated"
     },
     {
+      "group": "Auth",
+      "pages": [
+        "api-reference/auth/get-an-api-key"
+      ],
+      "version": "v1.1 - Current"
+    },  
+    {
       "group": "Wallets",
       "pages": [
         "api-reference/wallets/read-all-wallets",

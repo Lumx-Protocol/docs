@@ -543,9 +543,11 @@ components:
       properties:
         name: 
           type: string
+          description: The name of your organization, for identification purposes. Must be unique.
         otp:
           type: string 
           format: password
+          description: The one-time-password provided to you by Lumx (only for production environments).
     CreateAPIKeyResponse:
       type: object
       properties:
