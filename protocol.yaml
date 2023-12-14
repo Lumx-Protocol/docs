@@ -142,6 +142,26 @@ paths:
       security:
         - clientAuth: []
   # v1.1 (current)
+  "/auth":
+    post:
+      summary: Get an API key
+      description: Use this route to obtain an API key. In production environments, you will need a one time password in order to get your API key.
+      tags: 
+        - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateAPIKeyRequest"
+              required:
+                - name
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CreateAPIKeyResponse"
   "/wallets":
     post:
       summary: Create a wallet
@@ -518,6 +538,19 @@ paths:
         - clientAuth: []
 components:
   schemas:
+    CreateAPIKeyRequest:
+      type: object 
+      properties:
+        name: 
+          type: string
+        otp:
+          type: string 
+          format: password
+    CreateAPIKeyResponse:
+      type: object
+      properties:
+        apiKey: 
+          type: string
     WalletResponse:
       type: object
       properties:
