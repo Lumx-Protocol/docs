@@ -35,7 +35,7 @@
   ],
   "tabs": [
     {
-      "name": "API References",
+      "name": "API Reference",
       "url": "api-reference"
     },
     {
@@ -48,19 +48,6 @@
       "group": "Get Started",
       "pages": [
         "get-started/introduction",
-        "get-started/why-lumx",
-        "get-started/authentication",
-        "get-started/environments",
-        "get-started/blockchains",
-        "get-started/troubleshooting",
-        "get-started/changelog"
-      ]
-    },
-    {
-      "group": "Get Started",
-      "pages": [
-        "get-started/introduction",
-        "get-started/why-lumx",
         "get-started/authentication",
         "get-started/environments",
         "get-started/blockchains",
@@ -73,9 +60,9 @@
       "pages": [
         "recipes/overview",
         "recipes/first-request",
-        "recipes/create-wallet",
         "recipes/create-contract",
-        "recipes/read-transaction"
+        "recipes/create-wallet",
+        "recipes/mint-tokens"
       ]
     },
     {
@@ -85,21 +72,6 @@
         "widgets/authentication",
         "widgets/checkout"
       ]
-    },
-    {
-      "group": "Accounts",
-      "pages": [
-        "api-reference/deprecated/transfer-tokens",
-        "api-reference/deprecated/create-account-for-user",
-        "api-reference/deprecated/update-a-user",
-        "api-reference/deprecated/read-wallet"
-      ],
-      "version": "v1.0 - Deprecated"
-    },
-    {
-      "group": "Mints",
-      "pages": ["api-reference/deprecated/send-an-airdrop"],
-      "version": "v1.0 - Deprecated"
     },
     {
       "group": "Auth",
@@ -141,6 +113,21 @@
         "api-reference/transactions/read-a-transaction"
       ],
       "version": "v1.1 - Current"
+    },
+    {
+      "group": "Accounts",
+      "pages": [
+        "api-reference/deprecated/transfer-tokens",
+        "api-reference/deprecated/create-account-for-user",
+        "api-reference/deprecated/update-a-user",
+        "api-reference/deprecated/read-wallet"
+      ],
+      "version": "v1.0 - Deprecated"
+    },
+    {
+      "group": "Mints",
+      "pages": ["api-reference/deprecated/send-an-airdrop"],
+      "version": "v1.0 - Deprecated"
     }
   ],
   "footerSocials": {

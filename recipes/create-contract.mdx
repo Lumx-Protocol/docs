@@ -29,7 +29,7 @@ Every token needs a smart contract on the blockchain. But it's our job on the pr
 
 ```bash cURL
 curl --request POST \
---url https://protocol-staging.int.lumx.io/v1/contracts \
+--url https://protocol-sandbox.lumx.io/v1/contracts \
 --header 'Bearer: $API_KEY' \
 --header 'Content-Type: application/json' \
 --data '
@@ -38,25 +38,17 @@ curl --request POST \
   "name": "First fungible contract",
   "description": "My first fungible contract",
   "blockchainName": "polygon",
-  "currency": {
-    "type": "fiat",
-    "symbol": "USD"
-  }
 }
 '
 ```
 
 ```javascript JavaScript
 axios
-  .post("https://protocol-staging.int.lumx.io/v1/contracts", {
+  .post("https://protocol-sandbox.lumx.io/v1/contracts", {
     type: "fungible",
     name: "First fungible contract",
     description: "My first fungible contract",
     blockchainName: "polygon",
-    currency: {
-      type: "fiat",
-      symbol: "USD",
-    },
   })
   .then((response) => {
     // Handle Success
@@ -76,15 +68,13 @@ Now it's time to create an item type and associate it to the contract that we cr
 
 ```bash cURL
 curl --request POST \
---url https://protocol-staging.int.lumx.io/v1/item-types \
+--url https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/item-types \
 --header 'Bearer: $API_KEY' \
 --header 'Content-Type: application/json' \
 --data '
 {
-  "contractId": "<CONTRACT_ID>",
   "description": "My first item type",
   "name": "First item type",
-  "price": 0,
   "supply": 100
 }
 '
@@ -92,11 +82,9 @@ curl --request POST \
 
 ```javascript JavaScript
 axios
-  .post("https://protocol-staging.int.lumx.io/v1/item-types", {
-    contractId: "<CONTRACT_ID>",
+  .post("https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/item-types", {
     description: "My first item type",
     name: "First item type",
-    price: 0,
     supply: 100,
   })
   .then((response) => {
@@ -117,13 +105,13 @@ The last step is to deploy your contract to the blockchain. You can do that with
 
 ```bash cURL
 curl --request POST \
---url https://protocol-staging.int.lumx.io/v1/contract/{contractId}/deploy \
+--url https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/deploy \
 --header 'Bearer: $API_KEY'
 ```
 
 ```javascript JavaScript
 axios
-  .post("https://protocol-staging.int.lumx.io/v1/contract/{contractId}/deploy")
+  .post("https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/deploy")
   .then((response) => {
     // Handle Success
     console.log(response);
@@ -136,6 +124,6 @@ You will receive a status 200 with an object containing the contract address on 
 
 **Congratulations!** You can check your contract on the [block explorer](https://mumbai.polygonscan.com).
 
-If you completed all the steps above, you can advance to our next recipe.
+Coming up next, let's create a wallet to receive the tokens you'll want to mint from this newly created contract.
 
 <Snippet file="troubleshooting.mdx" />
