@@ -302,8 +302,12 @@ paths:
             type: string
             format: uuid
       responses:
-        "202":
-          description: Accepted
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ContractResponse"
       security:
         - clientAuth: []
   "/contracts/{contractId}/item-types":
@@ -631,19 +635,10 @@ components:
         supply:
           type: number
           description: The supply of the item type.
+          maximum: 2000000000
         traits:
           type: object
           description: The traits of the item type. The key is the name of the trait and the value is the value of the trait.
-          properties:
-            trait1_name:
-              type: string
-              default: trait1_value
-            trait2_name:
-              type: string
-              default: trait2_value
-            trait3_name:
-              type: string
-              default: trait3_value
         imageUrl:
           type: string
           description: The image URL of the item type. Supported formats are PNG, JPEG, GIF or MP4.
@@ -667,6 +662,7 @@ components:
         supply:
           type: number
           description: The supply of the item type.
+          maximum: 2000000000
         traits:
           type: object
           description: The traits of the item type. The key is the name of the trait and the value is the value of the trait.
@@ -698,19 +694,10 @@ components:
         supply:
           type: number
           description: The supply of the item type.
+          maximum: 2000000000
         traits:
           type: object
           description: The traits of the item type. The key is the name of the trait and the value is the value of the trait.
-          properties:
-            trait1_name:
-              type: string
-              default: trait1_value
-            trait2_name:
-              type: string
-              default: trait2_value
-            trait3_name:
-              type: string
-              default: trait3_value
         imageUrl:
           type: string
           description: The image URL of the item type. Supported formats are PNG, JPEG, GIF or MP4.
