@@ -146,7 +146,7 @@ paths:
     post:
       summary: Get an API key
       description: Use this route to obtain an API key. In production environments, you will need a one time password in order to get a key.
-      tags: 
+      tags:
         - Auth
       requestBody:
         content:
@@ -464,6 +464,7 @@ paths:
               required:
                 - itemTypeId
                 - walletId
+                - amount
       responses:
         "202":
           description: Accepted
@@ -539,19 +540,19 @@ paths:
 components:
   schemas:
     CreateAPIKeyRequest:
-      type: object 
+      type: object
       properties:
-        name: 
+        name:
           type: string
           description: The name of your organization, for identification purposes. Must be unique.
         otp:
-          type: string 
+          type: string
           format: password
           description: The one-time-password provided to you by Lumx (only for production environments).
     CreateAPIKeyResponse:
       type: object
       properties:
-        apiKey: 
+        apiKey:
           type: string
     WalletResponse:
       type: object

@@ -5,7 +5,7 @@ description: "Learn how to create a contract"
 
 <Snippet file="admin-authentication.mdx" />
 
-#### Step 1. Add your api key to the request headers
+#### Step 1. Add your API key to the request headers
 
 <CodeGroup>
 
@@ -82,11 +82,14 @@ curl --request POST \
 
 ```javascript JavaScript
 axios
-  .post("https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/item-types", {
-    description: "My first item type",
-    name: "First item type",
-    supply: 100,
-  })
+  .post(
+    "https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/item-types",
+    {
+      description: "My first item type",
+      name: "First item type",
+      supply: 100,
+    }
+  )
   .then((response) => {
     // Handle Success
     console.log(response);
@@ -111,7 +114,9 @@ curl --request POST \
 
 ```javascript JavaScript
 axios
-  .post("https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/deploy")
+  .post(
+    "https://protocol-sandbox.lumx.io/v1/contracts/<contract_id_you_received_on_step_2>/deploy"
+  )
   .then((response) => {
     // Handle Success
     console.log(response);
