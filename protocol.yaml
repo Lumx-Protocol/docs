@@ -7,7 +7,7 @@ info:
 servers:
   - url: https://protocol-sandbox.lumx.io/v1
 paths:
-# v1.0 (deprecated) 
+  # v1.0 (deprecated)
   "/mints/airdrop":
     post:
       deprecated: true
@@ -22,7 +22,7 @@ paths:
               "$ref": "#/components/schemas/MintAirdropRequest"
               required:
                 - itemTypeId
-                - walletAddress
+                - address
       responses:
         "202":
           description: Accepted
@@ -31,7 +31,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/MintResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/users/wallet/transfer/{userId}":
     post:
       tags:
@@ -63,7 +63,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/AdminTransferResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/account/users":
     post:
       deprecated: true
@@ -87,13 +87,13 @@ paths:
                   account:
                     "$ref": "#/components/schemas/UserResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/account/users/{userId}":
     patch:
       deprecated: true
       summary: Update a user
       description: This endpoint allows an client to manually update a user data. Instead of users to self update.
-      tags: 
+      tags:
         - Deprecated
       parameters:
         - name: userId
@@ -116,7 +116,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/UserResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/users/{userId}/wallet":
     get:
       tags:
@@ -140,8 +140,28 @@ paths:
               schema:
                 "$ref": "#/components/schemas/UserWalletResponse"
       security:
-        - clientAuth: []
-# v1.1 (current)
+        - apiKey: []
+  # v1.1 (current)
+  "/auth":
+    post:
+      summary: Get an API key
+      description: Use this route to obtain an API key. In production environments, you will need a one time password in order to get a key.
+      tags:
+        - Auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/CreateAPIKeyRequest"
+              required:
+                - name
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/CreateAPIKeyResponse"
   "/wallets":
     post:
       summary: Create a wallet
@@ -156,7 +176,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/WalletResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
     get:
       tags:
         - Wallets
@@ -172,7 +192,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/WalletListResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/wallets/{walletId}":
     get:
       tags:
@@ -195,7 +215,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/WalletResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/contracts":
     post:
       tags:
@@ -220,7 +240,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/ContractResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
     get:
       tags:
         - Contracts
@@ -236,7 +256,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/ContractResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/contracts/{contractId}":
     get:
       tags:
@@ -259,7 +279,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/ContractResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
     patch:
       tags:
         - Contracts
@@ -286,7 +306,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/ContractResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/contracts/{contractId}/deploy":
     post:
       tags:
@@ -298,14 +318,18 @@ paths:
           in: path
           description: The ID of the contract to be deployed.
           required: true
-          schema: 
+          schema:
             type: string
             format: uuid
       responses:
-        "202":
-          description: Accepted
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ContractResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/contracts/{contractId}/item-types":
     post:
       tags:
@@ -317,7 +341,7 @@ paths:
           in: path
           description: The ID of the contract to which the item type will be added.
           required: true
-          schema: 
+          schema:
             type: string
             format: uuid
       requestBody:
@@ -337,7 +361,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/ItemTypeResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
     get:
       tags:
         - Contracts
@@ -348,7 +372,7 @@ paths:
           in: path
           description: The ID of the contract.
           required: true
-          schema: 
+          schema:
             type: string
             format: uuid
       responses:
@@ -361,7 +385,7 @@ paths:
                 items:
                   $ref: "#/components/schemas/ItemTypeResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/contracts/{contractId}/item-types/{itemTypeId}":
     get:
       tags:
@@ -373,7 +397,7 @@ paths:
           in: path
           description: The ID of the contract to which the item type belongs.
           required: true
-          schema: 
+          schema:
             type: string
             format: uuid
         - name: itemTypeId
@@ -391,7 +415,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/ItemTypeResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
     patch:
       tags:
         - Contracts
@@ -402,7 +426,7 @@ paths:
           in: path
           description: The ID of the contract to which the item type belongs.
           required: true
-          schema: 
+          schema:
             type: string
             format: uuid
         - name: itemTypeId
@@ -425,7 +449,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/ItemTypeResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/transactions/mints":
     post:
       tags:
@@ -440,6 +464,7 @@ paths:
               required:
                 - itemTypeId
                 - walletId
+                - amount
       responses:
         "202":
           description: Accepted
@@ -448,7 +473,7 @@ paths:
               schema:
                 "$ref": "#/components/schemas/MintResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/transactions/transfers":
     post:
       tags:
@@ -472,13 +497,13 @@ paths:
               schema:
                 "$ref": "#/components/schemas/MintTransferResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/transactions":
     get:
       tags:
         - Transactions
       summary: Read all transactions
-      description: 'This endpoint reads all transactions made with your API key. DISCLAIMER: currently only returns mints, will return transfers soon.'
+      description: "This endpoint reads all transactions made with your API key. DISCLAIMER: currently only returns mints, will return transfers soon."
       responses:
         "200":
           description: OK
@@ -486,16 +511,16 @@ paths:
             application/json:
               schema:
                 type: "array"
-                items: 
-                 $ref: "#/components/schemas/MintResponse"
+                items:
+                  $ref: "#/components/schemas/MintResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
   "/transactions/{trasactionId}":
     get:
       tags:
         - Transactions
       summary: Read a transaction
-      description: 'This endpoint reads a transaction made with your API key. DISCLAIMER: currently only works for mints, will return transfers soon.'
+      description: "This endpoint reads a transaction made with your API key. DISCLAIMER: currently only works for mints, will return transfers soon."
       parameters:
         - name: trasactionId
           in: path
@@ -511,9 +536,24 @@ paths:
               schema:
                 $ref: "#/components/schemas/MintResponse"
       security:
-        - clientAuth: []
+        - apiKey: []
 components:
   schemas:
+    CreateAPIKeyRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of your organization, for identification purposes. Must be unique.
+        otp:
+          type: string
+          format: password
+          description: The one-time-password provided to you by Lumx (only for production environments).
+    CreateAPIKeyResponse:
+      type: object
+      properties:
+        apiKey:
+          type: string
     WalletResponse:
       type: object
       properties:
@@ -543,7 +583,7 @@ components:
           type: string
           description: The id for this wallet.
           format: uuid
-        address: 
+        address:
           type: string
           description: The blockchain address for this wallet.
     ContractRequest:
@@ -614,11 +654,11 @@ components:
           format: date-time
           type: string
           description: 'The end date and time of the mint period. Format: "YYYY-MM-DD HH:mm" (GMT/UTC+0)'
-        abi: 
+        abi:
           type: array
           description: The ABI for this contract (only for deployed contracts)
           nullable: true
-          items: 
+          items:
             type: object
     ItemTypeCreateRequest:
       properties:
@@ -631,20 +671,10 @@ components:
         supply:
           type: number
           description: The supply of the item type.
+          maximum: 2000000000
         traits:
           type: object
           description: The traits of the item type. The key is the name of the trait and the value is the value of the trait.
-          properties:
-            trait1_name: 
-              type: string
-              default: trait1_value
-            trait2_name: 
-              type: string
-              default: trait2_value
-            trait3_name: 
-              type: string
-              default: trait3_value
-
         imageUrl:
           type: string
           description: The image URL of the item type. Supported formats are PNG, JPEG, GIF or MP4.
@@ -668,17 +698,18 @@ components:
         supply:
           type: number
           description: The supply of the item type.
+          maximum: 2000000000
         traits:
           type: object
           description: The traits of the item type. The key is the name of the trait and the value is the value of the trait.
           properties:
-            trait1_name: 
+            trait1_name:
               type: string
               default: trait1_value
-            trait2_name: 
+            trait2_name:
               type: string
               default: trait2_value
-            trait3_name: 
+            trait3_name:
               type: string
               default: trait3_value
         imageUrl:
@@ -699,19 +730,10 @@ components:
         supply:
           type: number
           description: The supply of the item type.
+          maximum: 2000000000
         traits:
           type: object
           description: The traits of the item type. The key is the name of the trait and the value is the value of the trait.
-          properties:
-            trait1_name: 
-              type: string
-              default: trait1_value
-            trait2_name: 
-              type: string
-              default: trait2_value
-            trait3_name: 
-              type: string
-              default: trait3_value
         imageUrl:
           type: string
           description: The image URL of the item type. Supported formats are PNG, JPEG, GIF or MP4.
@@ -743,42 +765,50 @@ components:
         status:
           type: string
           description: The status of the mint.
-          enum: ["success", "created", "failed", "in_queue", "pending", "job_received"]
+          enum:
+            [
+              "success",
+              "created",
+              "failed",
+              "in_queue",
+              "pending",
+              "job_received",
+            ]
         transactionHash:
           type: string
           description: The identifier of this transaction on the blockchain.
       type: object
     TokenResponse:
       properties:
-        itemTypeId: 
+        itemTypeId:
           type: string
           format: uuid
           description: If this token belongs to a contract created through Lumx Protocol, this field indicates the id of the corresponding item type.
-        contractType: 
+        contractType:
           type: string
           enum: ["fungible", "non_fungible"]
           description: The type of the contract to which this token belongs ('fungible' or 'non_fungible')
-        tokenAddress: 
+        tokenAddress:
           type: string
           description: The type of the contract to which this token belongs.
-        tokenId: 
+        tokenId:
           type: string
           description: Only for non-fungible contracts. It's the sequential mint number for this token.
-        tokenUri: 
+        tokenUri:
           type: string
           description: The URI where this token's metadata is located.
-        metadata: 
+        metadata:
           type: object
           nullable: true
           description: The token's metadata, such as image address, traits, etc.
-        name: 
+        name:
           type: string
           description: The token's name.
-        symbol: 
+        symbol:
           type: string
           nullable: true
           description: The token's symbol.
-        amount: 
+        amount:
           type: number
           description: How much of that token is present at this wallet.
     MintTransactionRequest:
@@ -851,7 +881,7 @@ components:
           format: uuid
           type: string
           description: The ID of the item type.
-        walletAddress:
+        address:
           type: string
           description: The wallet address to receive the tokens.
         amount:
@@ -952,7 +982,7 @@ components:
           type: string
       type: object
   securitySchemes:
-    clientAuth:
+    apiKey:
       type: http
       scheme: bearer
-      description: Bearer authentication header of the form `Bearer <API_KEY>`, where `<API_KEY>` is your auth token.
+      description: Bearer authentication header of the form `Bearer <API_KEY>`.
