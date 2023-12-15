@@ -7,7 +7,7 @@
   },
   "api": {
     "baseUrl": [
-      "https://protocol.lumx.io/v1",
+      "https://protocol-staging.int.lumx.io/v1",
       "https://protocol-sandbox.lumx.io/v1"
     ],
     "maintainOrder": true
