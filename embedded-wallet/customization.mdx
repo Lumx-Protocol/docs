@@ -1,42 +1,61 @@
 ---
-title: "Customization"
-description: "Transform your widgets with you unique style"
+title: 'Customization'
+description: 'Bring your own style to our wallet'
 ---
 
-For further customization of the widgets, you can add the option object on the .init function. You can choose between the following keys.
+For further customization of the widgets, we provide a series of options to better help you style it according to your needs. If you wish to have more options please contact us.
 
-#### theme
+> Try out our widget here! [Playground](https://lumes-groovy-site.webflow.io/en/live-demo)
 
-Defines the theme.
+#### Theme
 
-Default:
-`dark`
+Defines the theme of the widget `string?`
 
-#### primaryColor
+| Characteristics | Description             |
+| --------------- | ----------------------- |
+| Name            | `theme`                 |
+| Options         | `light` `dark` `system` |
+| Required        | no                      |
+| Default         | `dark`                  |
 
-Defines the color of the main button and the main shade color on the success screens both on checkout and auth.
+#### Color scheme
 
-Default:
-`#6E05FF`
+Defines the main color or your widget. Includes button states and focus colors `string?`
 
-#### primaryButtonColor
+| Characteristics | Description                                   |
+| --------------- | --------------------------------------------- |
+| Name            | `colorScheme`                                 |
+| Options         | `purple` `orange` `pink` `red` `green` `blue` |
+| Required        | no                                            |
+| Default         | `purple`                                      |
 
-Defines the color of the main button string.
+#### Language
 
-Default:
-`white`
+Our embedded wallet supports multiple languages out of the box. You can choose the language you want to use by passing the language code to the widget. `string?`
 
-#### secondaryColor
+| Characteristics | Description    |
+| --------------- | -------------- |
+| Name            | `lang`         |
+| Options         | `en` `pt` `es` |
+| Required        | no             |
+| Default         | `en`           |
 
-Defines the secondary shade on the success screens both on checkout and auth.
+### Modal
 
-Default:
-`#FA960399`
+When `isModal` is enabled, the widget will open in a modal. `boolean?`
 
-#### logo
+| Characteristics | Description |
+| --------------- | ----------- |
+| Name            | `isModal`   |
+| Required        | no          |
+| Default         | `false`     |
 
-The logo that appears on the success auth screen.
+#### Button string
 
-#### elementId
+When `isModal` is enabled or the device is mobile, the string that appears on the button to open the widget can be customized. `string?`
 
-If the id of a div is provided, the widget will be appended to it.
+| Characteristics | Description         |
+| --------------- | ------------------- |
+| Name            | `modalButtonString` |
+| Required        | no                  |
+| Default         | `Connect Wallet`    |

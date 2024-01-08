@@ -9,7 +9,10 @@
     "maintainOrder": true
   },
   "openapi": "protocol.yaml",
-  "versions": ["v1.1 - Current", "v1.0 - Deprecated"],
+  "versions": [
+    "v1.1 - Current",
+    "v1.0 - Deprecated"
+  ],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#6E05FF",
@@ -70,16 +73,10 @@
       ]
     },
     {
-      "group": "Get Started",
-      "pages": [
-        "widgets/introduction",
-        "widgets/authentication",
-        "widgets/checkout"
-      ]
-    },
-    {
       "group": "Auth",
-      "pages": ["api-reference/auth/get-an-api-key"],
+      "pages": [
+        "api-reference/auth/get-an-api-key"
+      ],
       "version": "v1.1 - Current"
     },
     {
@@ -138,7 +135,9 @@
     },
     {
       "group": "Mints",
-      "pages": ["api-reference/deprecated/send-an-airdrop"],
+      "pages": [
+        "api-reference/deprecated/send-an-airdrop"
+      ],
       "version": "v1.0 - Deprecated"
     }
   ],

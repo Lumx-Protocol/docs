@@ -1,77 +1,60 @@
 ---
-title: "Get Started"
-description: "Purchase Web3 tokens using the most common payment methods available"
+title: 'Get Started'
+description: 'Follow the steps below and you will be onboarding your users in no time.'
 ---
 
-Our checkout widget provides different payment methods for users to buy Web3 tokens, be it fungible tokens (cryptocurrencies) or non-fungible tokens (NFTs). Currently, the payment methods available include PIX (for Brazilian users) and Credit Card.
-
-Check our prototype below.
-
-<div
-  className="w-full"
-  style={{
-    height: "750px",
-  }}
->
-  <iframe
-    src="https://widgets-embed.lumxstudios.com/send?params=eyJDTElFTlRfSUQiOiJiYzVkZDU5ZS0xNmJkLTQ4YmItOGIxYS04MzQ3M2I1MjVkNzIiLCJET01BSU5fT1JJR0lOIjoiZmlsZTovLyIsImxvY2FsZSI6ImVuX1VTIiwidHlwZSI6ImNoZWNrb3V0IiwiaXRlbUlkIjoiZjQzZDU3NjktNWM0YS00YzYzLTk3NDUtNjhjMTYyMWRkZDRiIiwib3B0aW9ucyI6eyJ0aGVtZSI6ImRhcmsifSwiaXNNb2RhbCI6dHJ1ZX0="
-    allow="clipboard-write"
-    style={{
-      background: "#16181A",
-      display: "block",
-      flexGrow: "1",
-      borderRadius: "16px",
-      border: "none",
-      zIndex: "2147483640",
-      marginLeft: "auto",
-      marginRight: "auto",
-      padding: "20px",
-      height: "100%",
-      width: "100%",
-    }}
-  />
-</div>
-
-## Usage
-
-Copy the following code to the head of your website.
-
-```JavaScript
-<script src="https://widgets.lumxstudios.com"></script>
-
-<script>
-  widget.init({ clientId: <CLIENT_ID>, type: 'checkout' })
-</script>
+<Steps>
+	<Step title='Installation'>
+		Choose your favorite package manager!
+		<Tabs>
+			<Tab title='npm'>
+				```sh
+      npm i @lumx-protocol/auth-client
 ```
-
-You can also call **widget.init** on any event on your application such as on-click or on-submit.
-
-## Events
-
-To seamlessly incorporate the widget into your app, it's essential to monitor the emitted events. These events come in four distinct types.
-
-#### INIT_IFRAME
-
-When it has been called and loaded successfully.
-
-#### ORDER_INFO
-
-When the transcation is successful. Contains the txHash, and can be used when you need to update your UI.
-
-```JavaScript
-{
-  itemId: string
-  amount: number
-  price: number
-  paymentMethod: string
-  transactionHash: string
-}
+			</Tab>
+			<Tab title='yarn'>
+      			```sh
+      yarn add @lumx-protocol/auth-client
 ```
+</Tab>
+			<Tab title='pnpm'>
+      			```sh
+      pnpm i @lumx-protocol/auth-client
+```
+</Tab>
+		</Tabs>
+	</Step>
+	<Step title='Second Step'>
+		Once the widget provider is placed at the root of your application, you should be able to call the widget anywhere in your application.
+    For more information on props and/or styling refer to our props section or the customization section on the docs. (Por links relevantes)
+    ```tsx App.tsx
+import {
+	AuthClient,
+	AuthContextProvider,
+} from '@lumx-protocol/auth-client';
 
-#### CLOSE_IFRAME
+function App() {
+      return (
+        <AuthContextProviderProps
+            clientId='Contact us to get your clientId'
+            onFinishAuth={() => {
+            console.log('finish');
+        }}>
+            <AuthClient />
+        </AuthContextProvider>
+    )}
 
-When the widget is closed and removed from the page.
+export default App
+    ```
+    </Step>
+    <Step title='Third Step'>
+    	Some interesting props for you!
 
-#### END_AUTH
+      Need to have a test mode first? 
+      > Pass `isProd={false}` to the AuthContextProviderProps component.
 
-When the checkout process is finished.
+      Do you want to redirect the user after authentication?
+      > AuthContextProvider accepts a prop called ```onFinishAuth={() => {}}``` which will be called after the user is authenticated.
+    </Step>
+
+</Steps>
