@@ -29,6 +29,10 @@
       "url": "https://status.lumx.io"
     },
     {
+      "name": "Playground",
+      "url": "https://lumx.io/playground"
+    },
+    {
       "name": "Support",
       "url": "https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA"
     }
@@ -39,8 +43,8 @@
       "url": "api-reference"
     },
     {
-      "name": "Widgets",
-      "url": "widgets"
+      "name": "Embedded Wallet",
+      "url": "embedded-wallet"
     }
   ],
   "navigation": [
@@ -75,11 +79,9 @@
     },
     {
       "group": "Auth",
-      "pages": [
-        "api-reference/auth/get-an-api-key"
-      ],
+      "pages": ["api-reference/auth/get-an-api-key"],
       "version": "v1.1 - Current"
-    },  
+    },
     {
       "group": "Wallets",
       "pages": [
@@ -111,6 +113,16 @@
         "api-reference/transactions/transfer-tokens",
         "api-reference/transactions/read-all-transactions",
         "api-reference/transactions/read-a-transaction"
+      ],
+      "version": "v1.1 - Current"
+    },
+    {
+      "group": "Embedded Wallet",
+      "pages": [
+        "embedded-wallet/introduction",
+        "embedded-wallet/how-it-works",
+        "embedded-wallet/get-started",
+        "embedded-wallet/customization"
       ],
       "version": "v1.1 - Current"
     },
