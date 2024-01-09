@@ -3,23 +3,24 @@ title: 'Get Started'
 description: 'Follow the steps below and you will be onboarding your users in no time.'
 ---
 
+## Quick start
 <Steps>
 	<Step title='Installation'>
 		Choose your favorite package manager!
 		<Tabs>
 			<Tab title='npm'>
 				```sh
-      npm i @lumx-protocol/auth-client
+      npm i @lumx-protocol/auth-client@latest
 ```
 			</Tab>
 			<Tab title='yarn'>
       			```sh
-      yarn add @lumx-protocol/auth-client
+      yarn add @lumx-protocol/auth-client@latest
 ```
 </Tab>
 			<Tab title='pnpm'>
       			```sh
-      pnpm i @lumx-protocol/auth-client
+      pnpm i @lumx-protocol/auth-client@latest
 ```
 </Tab>
 		</Tabs>
@@ -48,13 +49,28 @@ export default App
     ```
     </Step>
     <Step title='Third Step'>
-    	Some interesting props for you!
+        The user will be available on your localStorage under the key `widgets.user` and its token under `widgets.token` after the authentication has finished. It's up to you to implement auth and route guards.
 
-      Need to have a test mode first? 
-      > Pass `isProd={false}` to the AuthContextProviderProps component.
-
-      Do you want to redirect the user after authentication?
-      > AuthContextProvider accepts a prop called ```onFinishAuth={() => {}}``` which will be called after the user is authenticated.
+        ```
+        widgets.user
+        {
+            avatarUrl: string
+            birthDate: string
+            cpf:string
+            email: string
+            id: string
+            name: string
+            phone: string
+            walletAddress: string
+        }
+        ```
     </Step>
-
 </Steps>
+
+## Supported Props
+
+    ### Test mode
+      > Pass `isProd={false}` to the AuthContextProviderProps component. Defaults to `true`.
+
+    ### Authentication redirect
+      > AuthContextProvider accepts a prop called ```onFinishAuth={() => {}}``` which will be called after the user is authenticated.

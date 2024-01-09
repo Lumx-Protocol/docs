@@ -117,7 +117,6 @@
       "group": "Embedded Wallet",
       "pages": [
         "embedded-wallet/introduction",
-        "embedded-wallet/how-it-works",
         "embedded-wallet/get-started",
         "embedded-wallet/customization"
       ],
