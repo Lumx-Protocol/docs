@@ -1,9 +1,7 @@
 ---
-title: "Get Started"
-description: "Follow the steps below and you will be onboarding your users in no time."
+title: 'Get Started'
+description: 'Follow the steps below and you will be onboarding your users in no time.'
 ---
-
-## Quick start
 
 <Steps>
 	<Step title='Installation'>
@@ -11,17 +9,17 @@ description: "Follow the steps below and you will be onboarding your users in no
 		<Tabs>
 			<Tab title='npm'>
 				```sh
-      npm i @lumx-protocol/auth-client@latest
+      npm i @lumx-protocol/embedded-wallet@latest
 ```
 			</Tab>
 			<Tab title='yarn'>
       			```sh
-      yarn add @lumx-protocol/auth-client@latest
+      yarn add @lumx-protocol/embedded-wallet@latest
 ```
 </Tab>
 			<Tab title='pnpm'>
       			```sh
-      pnpm i @lumx-protocol/auth-client@latest
+      pnpm i @lumx-protocol/embedded-wallet@latest
 ```
 </Tab>
 		</Tabs>
@@ -31,19 +29,19 @@ description: "Follow the steps below and you will be onboarding your users in no
     > For more information on styling go to our [customization section](/embedded-wallet/customization)
     ```tsx App.tsx
     import {
-        AuthClient,
-        AuthContextProvider,
-    } from '@lumx-protocol/auth-client';
+        Wallet,
+        WalletContextProvider,
+    } from '@lumx-protocol/embedded-wallet';
 
     function App() {
     return (
-    <AuthContextProviderProps
+    <WalletContextProvider
             clientId='YOUR_CLIENT_ID'
             onFinishAuth={() => {
                 console.log('finish');
             }}>
-            <AuthClient />
-    </AuthContextProvider>
+            <Wallet />
+    </WalletContextProvider>
     )}
 
     export default App
@@ -53,7 +51,7 @@ description: "Follow the steps below and you will be onboarding your users in no
         After the authentication, the user will be available on your localStorage under the key `wallet.user` and its token under `wallet.token`.
 
         ```
-        widgets.user
+        wallet.user
         {
             id: string
             walletAddress: string
@@ -70,11 +68,3 @@ description: "Follow the steps below and you will be onboarding your users in no
     </Step>
 
 </Steps>
-
-## Supported Props
-
-    ### Test mode
-      > Pass `isProd={false}` to the AuthContextProviderProps component. Defaults to `true`.
-
-    ### Authentication redirect
-      > AuthContextProvider accepts a prop called ```onFinishAuth={() => {}}``` which will be called after the user is authenticated.

@@ -118,6 +118,7 @@
       "pages": [
         "embedded-wallet/introduction",
         "embedded-wallet/get-started",
+        "embedded-wallet/properties",
         "embedded-wallet/customization"
       ],
       "version": "v1.1 - Current"
