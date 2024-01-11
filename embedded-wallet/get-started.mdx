@@ -1,12 +1,13 @@
 ---
-title: 'Get Started'
-description: 'Follow the steps below and you will be onboarding your users in no time.'
+title: "Get Started"
+description: "Follow the steps below and you will be onboarding your users in no time."
 ---
 
 ## Quick start
+
 <Steps>
 	<Step title='Installation'>
-		Choose your favorite package manager!
+		Choose your favorite package manager
 		<Tabs>
 			<Tab title='npm'>
 				```sh
@@ -25,46 +26,49 @@ description: 'Follow the steps below and you will be onboarding your users in no
 </Tab>
 		</Tabs>
 	</Step>
-	<Step title='Second Step'>
-		Once the widget provider is placed at the root of your application, you should be able to call the widget anywhere in your application.
-    For more information on props and/or styling refer to our props section or the customization section on the docs. (Por links relevantes)
+	<Step title='Second step'>
+		Once the provider is placed at the root of your application, you should be able to call the wallet anywhere in your application.
+    > For more information on styling go to our [customization section](/embedded-wallet/customization)
     ```tsx App.tsx
-import {
-	AuthClient,
-	AuthContextProvider,
-} from '@lumx-protocol/auth-client';
+    import {
+        AuthClient,
+        AuthContextProvider,
+    } from '@lumx-protocol/auth-client';
 
-function App() {
-      return (
-        <AuthContextProviderProps
-            clientId='Contact us to get your clientId'
+    function App() {
+    return (
+    <AuthContextProviderProps
+            clientId='YOUR_CLIENT_ID'
             onFinishAuth={() => {
-            console.log('finish');
-        }}>
+                console.log('finish');
+            }}>
             <AuthClient />
-        </AuthContextProvider>
+    </AuthContextProvider>
     )}
 
-export default App
+    export default App
     ```
     </Step>
-    <Step title='Third Step'>
-        The user will be available on your localStorage under the key `widgets.user` and its token under `widgets.token` after the authentication has finished. It's up to you to implement auth and route guards.
+    <Step title='Third step'>
+        After the authentication, the user will be available on your localStorage under the key `wallet.user` and its token under `wallet.token`.
 
         ```
         widgets.user
         {
-            avatarUrl: string
-            birthDate: string
-            cpf:string
-            email: string
             id: string
-            name: string
-            phone: string
             walletAddress: string
+            name: string
+            email: string
+            phone: string
+            cpf: string
+            birthDate: string
         }
         ```
     </Step>
+    <Step title='Fourth step'>
+        **Congratulations!** It's quite straightforward, isn't it? Now, you have the opportunity to utilize our token to enhance and leverage your application. For more development information and guidelines, please refer to the [API Reference](/api-reference/) section. We're excited to see the innovative ways you'll integrate our tools into your application!
+    </Step>
+
 </Steps>
 
 ## Supported Props
