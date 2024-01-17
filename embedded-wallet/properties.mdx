@@ -1,0 +1,24 @@
+---
+title: 'Properties'
+description: 'Some utilities props are exposed to customize the behavior of our wallet'
+---
+
+#### On finish authentication
+
+Callback function called after either signup or login flows are finished `() => {}`
+
+| Characteristics | Description    |
+| --------------- | -------------- |
+| Name            | `onFinishAuth` |
+| Required        | **yes**        |
+
+#### Production mode
+
+When production mode is enabled, our production api will be called. `string?`
+
+| Characteristics | Description            |
+| --------------- | ---------------------- |
+| Name            | `environment`          |
+| Options         | `production` `sandbox` |
+| Required        | no                     |
+| Default         | `production`           |

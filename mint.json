@@ -9,7 +9,10 @@
     "maintainOrder": true
   },
   "openapi": "protocol.yaml",
-  "versions": ["v1.1 - Current", "v1.0 - Deprecated"],
+  "versions": [
+    "v1.1 - Current",
+    "v1.0 - Deprecated"
+  ],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#6E05FF",
@@ -29,6 +32,10 @@
       "url": "https://status.lumx.io"
     },
     {
+      "name": "Playground",
+      "url": "https://lumx.io/playground"
+    },
+    {
       "name": "Support",
       "url": "https://join.slack.com/t/lumxpartners/shared_invite/zt-1z920ovmb-V6~OlHpvQSQupe7kJLu5YA"
     }
@@ -39,8 +46,8 @@
       "url": "api-reference"
     },
     {
-      "name": "Widgets",
-      "url": "widgets"
+      "name": "Embedded Wallet",
+      "url": "embedded-wallet"
     }
   ],
   "navigation": [
@@ -66,20 +73,12 @@
       ]
     },
     {
-      "group": "Get Started",
-      "pages": [
-        "widgets/introduction",
-        "widgets/authentication",
-        "widgets/checkout"
-      ]
-    },
-    {
       "group": "Auth",
       "pages": [
         "api-reference/auth/get-an-api-key"
       ],
       "version": "v1.1 - Current"
-    },  
+    },
     {
       "group": "Wallets",
       "pages": [
@@ -115,6 +114,17 @@
       "version": "v1.1 - Current"
     },
     {
+      "group": "Embedded Wallet",
+      "pages": [
+        "embedded-wallet/introduction",
+        "embedded-wallet/why-to-use",
+        "embedded-wallet/get-started",
+        "embedded-wallet/properties",
+        "embedded-wallet/customization"
+      ],
+      "version": "v1.1 - Current"
+    },
+    {
       "group": "Accounts",
       "pages": [
         "api-reference/deprecated/transfer-tokens",
@@ -126,7 +136,9 @@
     },
     {
       "group": "Mints",
-      "pages": ["api-reference/deprecated/send-an-airdrop"],
+      "pages": [
+        "api-reference/deprecated/send-an-airdrop"
+      ],
       "version": "v1.0 - Deprecated"
     }
   ],

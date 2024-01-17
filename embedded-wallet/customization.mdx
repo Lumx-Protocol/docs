@@ -1,0 +1,61 @@
+---
+title: "Customization"
+description: "Bring your own style to our wallet"
+---
+
+For further customization of the widgets, we provide a series of options to better help you style it according to your needs.
+
+> Feel free to test our wallet in the [Playground section](https://lumx.io/en/playground)
+
+#### Theme
+
+Defines the theme `string?`
+
+| Characteristics | Description             |
+| --------------- | ----------------------- |
+| Name            | `theme`                 |
+| Options         | `light` `dark` `system` |
+| Required        | no                      |
+| Default         | `dark`                  |
+
+#### Color scheme
+
+Defines the main color. Includes button states and focus colors `string?`
+
+| Characteristics | Description                                   |
+| --------------- | --------------------------------------------- |
+| Name            | `colorScheme`                                 |
+| Options         | `purple` `orange` `pink` `red` `green` `blue` |
+| Required        | no                                            |
+| Default         | `purple`                                      |
+
+#### Language
+
+Wallets supports multiple languages out of the box. You can choose the language you want to use by passing the language code to the widget. `string?`
+
+| Characteristics | Description    |
+| --------------- | -------------- |
+| Name            | `lang`         |
+| Options         | `en` `pt` `es` |
+| Required        | no             |
+| Default         | `en`           |
+
+### Modal
+
+When `isModal` is enabled, the wallet will open in a modal. `boolean?`
+
+| Characteristics | Description |
+| --------------- | ----------- |
+| Name            | `isModal`   |
+| Required        | no          |
+| Default         | `false`     |
+
+#### Button string
+
+When `isModal` is enabled or the device is mobile, the string that appears on the button to open the widget can be customized. `string?`
+
+| Characteristics | Description         |
+| --------------- | ------------------- |
+| Name            | `modalButtonString` |
+| Required        | no                  |
+| Default         | `Connect Wallet`    |
