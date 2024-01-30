@@ -8,9 +8,10 @@
   "api": {
     "maintainOrder": true
   },
-  "openapi": "protocol.yaml",
+  "openapi": ["openapi/protocol-v1.yaml","openapi/protocol-v2.yaml"],
   "versions": [
-    "v1.1 - Current",
+    "v2.0",
+    "v1.1",
     "v1.0 - Deprecated"
   ],
   "favicon": "/favicon.png",
@@ -75,43 +76,103 @@
     {
       "group": "Auth",
       "pages": [
-        "api-reference/auth/get-an-api-key"
+        "api-reference/v2/auth/get-an-api-key"
       ],
-      "version": "v1.1 - Current"
+      "version": "v2.0"
     },
     {
       "group": "Wallets",
       "pages": [
-        "api-reference/wallets/read-all-wallets",
-        "api-reference/wallets/create-a-wallet",
-        "api-reference/wallets/read-a-wallet"
+        "api-reference/v2/wallets/create-a-wallet",
+        "api-reference/v2/wallets/read-a-wallet",
+        "api-reference/v2/wallets/read-all-wallets",
+        "api-reference/v2/wallets/sign-a-message"
       ],
-      "version": "v1.1 - Current"
+      "version": "v2.0"
     },
     {
       "group": "Contracts",
       "pages": [
-        "api-reference/contracts/read-all-contracts",
-        "api-reference/contracts/create-a-contract",
-        "api-reference/contracts/read-a-contract",
-        "api-reference/contracts/update-a-contract",
-        "api-reference/contracts/deploy-a-contract",
-        "api-reference/contracts/read-all-item-types-of-a-given-contract",
-        "api-reference/contracts/create-an-item-type-for-a-contract",
-        "api-reference/contracts/read-an-item-type-from-a-contract",
-        "api-reference/contracts/update-an-item-type-of-a-contract"
+        "api-reference/v2/contracts/create-a-contract",
+        "api-reference/v2/contracts/update-a-contract",
+        "api-reference/v2/contracts/deploy-a-contract",
+        "api-reference/v2/contracts/read-a-contract",
+        "api-reference/v2/contracts/read-all-contracts",
+        "api-reference/v2/contracts/create-a-token-type",
+        "api-reference/v2/contracts/update-a-token-type",
+        "api-reference/v2/contracts/read-a-token-type",
+        "api-reference/v2/contracts/read-all-token-types"
       ],
-      "version": "v1.1 - Current"
+      "version": "v2.0"
     },
     {
       "group": "Transactions",
       "pages": [
-        "api-reference/transactions/mint-a-token",
-        "api-reference/transactions/transfer-tokens",
-        "api-reference/transactions/read-all-transactions",
-        "api-reference/transactions/read-a-transaction"
+        "api-reference/v2/transactions/mint-tokens",
+        "api-reference/v2/transactions/transfer-tokens",
+        "api-reference/v2/transactions/read-a-transaction",
+        "api-reference/v2/transactions/read-all-transactions",
+        "api-reference/v2/transactions/perform-a-custom-transaction"
       ],
-      "version": "v1.1 - Current"
+      "version": "v2.0"
+    },
+    {
+      "group": "Auth",
+      "pages": [
+        "api-reference/v1/auth/get-an-api-key"
+      ],
+      "version": "v1.1"
+    },
+    {
+      "group": "Wallets",
+      "pages": [
+        "api-reference/v1/wallets/read-all-wallets",
+        "api-reference/v1/wallets/create-a-wallet",
+        "api-reference/v1/wallets/read-a-wallet"
+      ],
+      "version": "v1.1"
+    },
+    {
+      "group": "Contracts",
+      "pages": [
+        "api-reference/v1/contracts/read-all-contracts",
+        "api-reference/v1/contracts/create-a-contract",
+        "api-reference/v1/contracts/read-a-contract",
+        "api-reference/v1/contracts/update-a-contract",
+        "api-reference/v1/contracts/deploy-a-contract",
+        "api-reference/v1/contracts/read-all-item-types-of-a-given-contract",
+        "api-reference/v1/contracts/create-an-item-type-for-a-contract",
+        "api-reference/v1/contracts/read-an-item-type-from-a-contract",
+        "api-reference/v1/contracts/update-an-item-type-of-a-contract"
+      ],
+      "version": "v1.1"
+    },
+    {
+      "group": "Transactions",
+      "pages": [
+        "api-reference/v1/transactions/mint-a-token",
+        "api-reference/v1/transactions/transfer-tokens",
+        "api-reference/v1/transactions/read-all-transactions",
+        "api-reference/v1/transactions/read-a-transaction"
+      ],
+      "version": "v1.1"
+    },
+    {
+      "group": "Accounts",
+      "pages": [
+        "api-reference/v1/deprecated/transfer-tokens",
+        "api-reference/v1/deprecated/create-account-for-user",
+        "api-reference/v1/deprecated/update-a-user",
+        "api-reference/v1/deprecated/read-wallet"
+      ],
+      "version": "v1.0 - Deprecated"
+    },
+    {
+      "group": "Mints",
+      "pages": [
+        "api-reference/v1/deprecated/send-an-airdrop"
+      ],
+      "version": "v1.0 - Deprecated"
     },
     {
       "group": "Embedded Wallet",
@@ -121,25 +182,7 @@
         "embedded-wallet/get-started",
         "embedded-wallet/properties",
         "embedded-wallet/customization"
-      ],
-      "version": "v1.1 - Current"
-    },
-    {
-      "group": "Accounts",
-      "pages": [
-        "api-reference/deprecated/transfer-tokens",
-        "api-reference/deprecated/create-account-for-user",
-        "api-reference/deprecated/update-a-user",
-        "api-reference/deprecated/read-wallet"
-      ],
-      "version": "v1.0 - Deprecated"
-    },
-    {
-      "group": "Mints",
-      "pages": [
-        "api-reference/deprecated/send-an-airdrop"
-      ],
-      "version": "v1.0 - Deprecated"
+      ]
     }
   ],
   "footerSocials": {
