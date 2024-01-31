@@ -85,8 +85,7 @@
       "pages": [
         "api-reference/v2/wallets/create-a-wallet",
         "api-reference/v2/wallets/read-a-wallet",
-        "api-reference/v2/wallets/read-all-wallets",
-        "api-reference/v2/wallets/sign-a-message"
+        "api-reference/v2/wallets/read-all-wallets"
       ],
       "version": "v2.0"
     },
@@ -110,9 +109,9 @@
       "pages": [
         "api-reference/v2/transactions/mint-tokens",
         "api-reference/v2/transactions/transfer-tokens",
+        "api-reference/v2/transactions/invoke-a-custom-transaction",
         "api-reference/v2/transactions/read-a-transaction",
-        "api-reference/v2/transactions/read-all-transactions",
-        "api-reference/v2/transactions/perform-a-custom-transaction"
+        "api-reference/v2/transactions/read-all-transactions"
       ],
       "version": "v2.0"
     },
