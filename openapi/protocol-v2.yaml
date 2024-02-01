@@ -692,7 +692,7 @@ components:
           type: string
           nullable: true
           description: >-
-            TThe URL for the image you want to display for this token type.
+            The URL for the image you want to display for this token type.
         metadataUrl:
           type: string
           description: The URL where this token's metadata JSON is located.
@@ -713,7 +713,7 @@ components:
         description:
           type: string
           description: The description of the token type.
-        initalSupply:
+        initialSupply:
           type: number
           description: >-
             The initial supply of the token type. Can only be updated if this
@@ -845,8 +845,6 @@ components:
           description: The transaction type (mint or transfer)
           enum:
             - mint
-            - transfer
-            - custom
         status:
           type: string
           description: The status of the transaction.
@@ -891,9 +889,7 @@ components:
           type: string
           description: The transaction type (mint or transfer)
           enum:
-            - mint
             - transfer
-            - custom
         status:
           type: string
           description: The status of the transaction.
@@ -938,8 +934,6 @@ components:
           type: string
           description: The transaction type (mint or transfer)
           enum:
-            - mint
-            - transfer
             - custom
         status:
           type: string
