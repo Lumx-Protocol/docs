@@ -162,6 +162,29 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/CreateAPIKeyResponse"
+  "/account/client/{id}":
+    get:
+      summary: Get a client account
+      description: Get a client by id.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: The ID of the client.
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                properties:
+                  account:
+                    "$ref": "#/components/schemas/ClientResponse"
+      security:
+        - apiKey: []
   "/wallets":
     post:
       summary: Create a wallet
@@ -576,6 +599,20 @@ components:
               items:
                 "$ref": "#/components/schemas/TokenResponse"
           type: object
+    ClientResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The id for this client.
+          format: uuid
+        name:
+          type: string
+          description: The name of the client.
+        createdAt:
+          description: 'The date when the client was created. Format "YYYY-MM-DD HH:mm" (GMT+0)'
+          type: string
+          format: date-time
     WalletListResponse:
       type: object
       properties:

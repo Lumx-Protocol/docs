@@ -80,6 +80,13 @@
       "version": "v1.1 - Current"
     },
     {
+      "group": "Client",
+      "pages": [
+        "api-reference/client/get-an-client"
+      ],
+      "version": "v1.1 - Current"
+    },
+    {
       "group": "Wallets",
       "pages": [
         "api-reference/wallets/read-all-wallets",
