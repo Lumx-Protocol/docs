@@ -109,6 +109,7 @@
       "pages": [
         "api-reference/transactions/mint-a-token",
         "api-reference/transactions/transfer-tokens",
+        "api-reference/transactions/custom-transaction",
         "api-reference/transactions/read-all-transactions",
         "api-reference/transactions/read-a-transaction"
       ],
