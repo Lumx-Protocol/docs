@@ -73,16 +73,10 @@
       ]
     },
     {
-      "group": "Auth",
+      "group": "Account",
       "pages": [
-        "api-reference/auth/get-an-api-key"
-      ],
-      "version": "v1.1 - Current"
-    },
-    {
-      "group": "Client",
-      "pages": [
-        "api-reference/client/get-an-client"
+        "api-reference/account/get-an-api-key",
+        "api-reference/account/get-account"
       ],
       "version": "v1.1 - Current"
     },
