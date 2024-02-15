@@ -513,7 +513,7 @@ paths:
                 "$ref": "#/components/schemas/MintTransferResponse"
       security:
         - apiKey: []
-  "/transactions":
+  "/transactions/custom":
     post:
       tags:
         - Transactions
