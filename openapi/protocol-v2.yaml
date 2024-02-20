@@ -6,28 +6,6 @@ info:
 servers:
   - url: 'https://protocol-sandbox.lumx.io/v2'
 paths:
-  /auth:
-    post:
-      summary: Get an API key
-      description: >-
-        Use this route to obtain an API key. In production environments, you
-        will need a one time password in order to get a key.
-      tags:
-        - Auth
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateAPIKeyRequest'
-              required:
-                - name
-      responses:
-        '201':
-          description: API key succesfully created.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateAPIKeyResponse'
   /wallets:
     post:
       summary: Create a wallet
@@ -490,26 +468,6 @@ paths:
         - apiKey: []
 components:
   schemas:
-    CreateAPIKeyRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: >-
-            The name of your organization, for identification purposes. Must be
-            unique.
-        otp:
-          type: string
-          format: password
-          description: >-
-            The one-time-password provided to you by Lumx (only for production
-            environments).
-    CreateAPIKeyResponse:
-      type: object
-      properties:
-        apiKey:
-          type: string
-          description: Your API key, to use in every subsequent API request. Keep it stored in a safe location, as it gives access to all API resources of your account.
     WalletResponse:
       type: object
       properties:
