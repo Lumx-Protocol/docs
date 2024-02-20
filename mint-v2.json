@@ -8,8 +8,9 @@
   "api": {
     "maintainOrder": true
   },
-  "openapi": ["openapi/protocol-v1.yaml"],
+  "openapi": ["openapi/protocol-v1.yaml","openapi/protocol-v2.yaml"],
   "versions": [
+    "v2.0",
     "v1.1",
     "v1.0 - Deprecated"
   ],
@@ -71,6 +72,41 @@
         "recipes/create-wallet",
         "recipes/mint-tokens"
       ]
+    },
+    {
+      "group": "Wallets",
+      "pages": [
+        "api-reference/v2/wallets/create-a-wallet",
+        "api-reference/v2/wallets/read-a-wallet",
+        "api-reference/v2/wallets/read-all-wallets"
+      ],
+      "version": "v2.0"
+    },
+    {
+      "group": "Contracts",
+      "pages": [
+        "api-reference/v2/contracts/create-a-contract",
+        "api-reference/v2/contracts/update-a-contract",
+        "api-reference/v2/contracts/deploy-a-contract",
+        "api-reference/v2/contracts/read-a-contract",
+        "api-reference/v2/contracts/read-all-contracts",
+        "api-reference/v2/contracts/create-a-token-type",
+        "api-reference/v2/contracts/update-a-token-type",
+        "api-reference/v2/contracts/read-a-token-type",
+        "api-reference/v2/contracts/read-all-token-types"
+      ],
+      "version": "v2.0"
+    },
+    {
+      "group": "Transactions",
+      "pages": [
+        "api-reference/v2/transactions/mint-tokens",
+        "api-reference/v2/transactions/transactions-transfer",
+        "api-reference/v2/transactions/invoke-a-custom-transaction",
+        "api-reference/v2/transactions/read-a-transaction",
+        "api-reference/v2/transactions/read-all-transactions"
+      ],
+      "version": "v2.0"
     },
     {
       "group": "Account",
