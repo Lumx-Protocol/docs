@@ -653,7 +653,7 @@ components:
           description: The description of the contract.
         blockchainName:
           type: string
-          enum: ["ethereum", "polygon", "linea"]
+          enum: ["ethereum", "polygon", "linea", "optimism"]
           description: The name of the blockchain used for the contract.
         maxPerAddress:
           type: integer
