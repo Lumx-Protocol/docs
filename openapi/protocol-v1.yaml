@@ -536,6 +536,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MintTransferResponse'
+      security:
+        - apiKey: []
   "/transactions":
     get:
       tags:
