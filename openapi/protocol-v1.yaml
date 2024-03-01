@@ -536,6 +536,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MintTransferResponse'
+      security:
+        - apiKey: []
   "/transactions":
     get:
       tags:
@@ -653,7 +655,7 @@ components:
           description: The description of the contract.
         blockchainName:
           type: string
-          enum: ["ethereum", "polygon"]
+          enum: ["ethereum", "polygon", "linea", "optimism"]
           description: The name of the blockchain used for the contract.
         maxPerAddress:
           type: integer
